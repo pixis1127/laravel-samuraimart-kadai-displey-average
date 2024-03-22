@@ -37,6 +37,15 @@
                          <div class="col-12">
                              <p class="samuraimart-product-label mt-2">
                                  {{$product->name}}<br>
+                                 <div class="reviews_avg mb-3">
+                                    <div class="samurai-star-rating ml-2">
+                                    <div class="samurai-star-rating-front" style="width: <%= $product->reviews_avg %>%">★★★★★</div>
+                                    <div class="samurai-star-rating-back">★★★★★</div>
+                                     </div>
+                                     <div class="average-score-display">
+                                    <%= $product->reviews_avg %>
+                                    </div>
+                                    </div>
                                  <label>￥{{$product->price}}</label>
                              </p>
                          </div>

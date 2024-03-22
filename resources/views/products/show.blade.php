@@ -76,8 +76,9 @@
          <div class="offset-1 col-11">
              <hr class="w-100">
              <h3 class="float-left">カスタマーレビュー</h3>
+             <span class="samuraimart-star-rating" data-rate="3">{{round($reviews_avg,1)}}</span>
          </div>
- 
+        <span class="review_socre">{{ $review_count }}</span>
          <div class="offset-1 col-10">
          <div class="row">
                  @foreach($reviews as $review)

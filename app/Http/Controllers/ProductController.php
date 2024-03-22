@@ -6,6 +6,7 @@ use App\Models\Product;
 use App\Models\Category;
 use App\Models\MajorCategory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
@@ -62,6 +63,7 @@ class ProductController extends Controller
     {
         $product = new Product();
         $product->name = $request->input('name');
+        $product->review_avg = $request->input('reviews_avg');
         $product->description = $request->input('description');
         $product->price = $request->input('price');
         $product->category_id = $request->input('category_id');
@@ -79,8 +81,22 @@ class ProductController extends Controller
     public function show(Product $product)
     {
         $reviews = $product->reviews()->get();
-  
-        return view('products.show', compact('product', 'reviews'));
+        $score_total=0;
+        $review_count= count($reviews);
+        $reviews_avg =$product->reviews->avg('score');
+
+        if ($review_count > 0) {
+            foreach ($reviews as $review) {
+                $score_total += $review->score;         
+               }
+   
+            $score_total =round($score_total/0.5,0)*0.5;
+            $review_average = $score_total/$review_count;
+           } else {
+            $review_average = 0;
+           }
+
+        return view('products.show', compact('product', 'reviews', 'reviews_avg', 'review_count'));
     }
 
     /**

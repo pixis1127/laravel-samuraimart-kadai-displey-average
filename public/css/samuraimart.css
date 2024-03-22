@@ -187,3 +187,69 @@ body {
 th, td {
   background-color: #f8fafc !important;
 }
+
+.average-score {
+  display: flex; 
+  justify-content: center;
+}
+
+.star-rating {
+  position: relative;
+  width: 5em;
+  height: 1em;
+  font-size: 17px;
+}
+
+.star-rating::before, 
+.star-rating::after{
+  content:"★★★★★";
+}
+
+.star-rating::after{
+  position: absolute;
+  color: #0fbe9f;
+  top: 0;
+  left: 0;
+}
+
+
+
+.star-rating-front {
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden; 
+  white-space: nowrap;
+  color: #ffcc33;
+  height: 25px;
+}
+.star-rating-back {
+  color: #ccc;
+}
+
+.samuraimart-star-rating {
+  position: relative;
+  z-index: 0;
+  display: inline-block;
+  color: #cccccc;
+  white-space: nowrap;
+}
+
+.samuraimart-star-rating::before,
+.samuraimart-star-rating::after {
+  content: "★★★★★";
+}
+
+.samuraimart-star-rating::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  overflow: hidden;
+  color: #0fbe9f;
+  white-space: nowrap;
+}
+
+.samuraimart-star-rating[data-rate="3"]::after {
+  width: 80%;
+ }

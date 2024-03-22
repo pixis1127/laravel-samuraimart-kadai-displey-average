@@ -22,6 +22,7 @@
                      <div class="col-12">
                          <p class="samuraimart-product-label mt-2">
                              {{ $recommend_product->name }}<br>
+                             <P class="samurai-mart-star-rating">{{$product->reviews_avg}}</P>
                              <label>￥{{ $recommend_product->price }}</label>
                          </p>
                      </div>
@@ -49,6 +50,7 @@
                          <div class="col-12">
                              <p class="samuraimart-product-label mt-2">
                                  {{ $recently_product->name }}<br>
+                                 <P class="samurai-mart-star-rating">{{$product->reviews_avg}}</P>
                                  <label>￥{{ $recently_product->price }}</label>
                              </p>
                          </div>
